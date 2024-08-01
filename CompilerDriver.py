@@ -1,3 +1,4 @@
+import argparse
 #This drive must allow a path to a C source file as its only argument
 
 #If the command succeeds then it will create a file with the same name, minus the extension in the same directory
@@ -8,3 +9,6 @@
 #--codegen performs lexing parsing and assembly generation but not code emission
 #All of these should return a 0 exit code if success, and produce no output files
 #Extra: add -S option to direct the compiler to emit and assembly file but not to assemble or link it
+
+parser = argparse.ArgumentParser(description='Wrapper for homemade C compiler')
+parser.add_argument('filepath', metavar='P', type=str, help="A source file path for the compiler")
