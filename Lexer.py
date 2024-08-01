@@ -11,6 +11,20 @@ file = args.filepath
 #Attempt to open the file
 try:
     f = open(file, "r")
-    print(f.read())
+    curTok = ""
+    tokList = []
+    while True:
+        tok = f.read(1)
+        if not tok:
+            break
+        if tok == "{" or tok == "}" or tok == "(" or tok == ")" or tok == " " or tok == ";":
+            if curTok != "":
+                tokList.append(curTok)
+            if tok != " " and tok != '':
+                tokList.append(tok)
+            curTok = ""
+        else:
+            curTok += tok
+    #print(tokList)
 except Exception as e:
     print(e)
