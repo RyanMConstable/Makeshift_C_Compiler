@@ -27,4 +27,4 @@ try:
             curTok += tok
     #print(tokList)
 except Exception as e:
-    print(e)
+    print("ERROR: " + e)
