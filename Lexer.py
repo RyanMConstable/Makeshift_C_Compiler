@@ -19,12 +19,17 @@ try:
             break
         if tok == "{" or tok == "}" or tok == "(" or tok == ")" or tok == " " or tok == ";":
             if curTok != "":
-                tokList.append(curTok)
+                #Make sure that the it's a valid variable name
+                #In the future have to check the entire word to make sure no invalid characters
+                if curTok[0].isalpha():
+                    tokList.append(curTok)
             if tok != " " and tok != '':
                 tokList.append(tok)
             curTok = ""
         else:
             curTok += tok
-    #print(tokList)
+    print(tokList)
 except Exception as e:
     print("ERROR: " + e)
+
+exit(0)
