@@ -24,7 +24,7 @@ args = parser.parse_args()
 file = args.filepath
 idx1 = file.rindex(".")
 idx2 = file.rindex("/")
-filename = file[idx2+1:idx1]
+filename = file[idx2+1:idx1] + ".i"
 
 lex = args.lex
 parser = args.parser
@@ -34,7 +34,7 @@ emitAssembly = args.S
 #The following command preprocesses the source file
 # "gcc -E -P input_file -o preprocessed_file" this should generate a .i extension
 #Delete when done
-subprocess.run(["gcc", "-E", "-P", file, "-o"])
+subprocess.run(["gcc", "-E", "-P", file, "-o", filename])
 #Compile the preprocessed source file and output an assembly file
 #Skip this step because we don't have a compiler yet (generate a .s file)
 #Delete when done
