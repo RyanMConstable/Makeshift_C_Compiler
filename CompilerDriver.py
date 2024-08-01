@@ -33,6 +33,9 @@ parser = args.parser
 codegen = args.codegen
 emitAssembly = args.S
 
+
+#Create a pattern matching for each command
+
 #The following command preprocesses the source file
 # "gcc -E -P input_file -o preprocessed_file" this should generate a .i extension
 #Delete when done
