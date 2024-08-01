@@ -1,5 +1,7 @@
 import argparse
 import subprocess
+import os
+
 #This drive must allow a path to a C source file as its only argument
 
 #If the command succeeds then it will create a file with the same name, minus the extension in the same directory
@@ -35,6 +37,8 @@ emitAssembly = args.S
 # "gcc -E -P input_file -o preprocessed_file" this should generate a .i extension
 #Delete when done
 subprocess.run(["gcc", "-E", "-P", file, "-o", filename])
+os.remove(filename)
+
 #Compile the preprocessed source file and output an assembly file
 #Skip this step because we don't have a compiler yet (generate a .s file)
 #Delete when done
