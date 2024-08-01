@@ -1,4 +1,5 @@
 import argparse
+import subprocess
 #This drive must allow a path to a C source file as its only argument
 
 #If the command succeeds then it will create a file with the same name, minus the extension in the same directory
@@ -12,10 +13,17 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Wrapper for homemade C compiler')
 parser.add_argument('filepath', metavar='P', type=str, help="A source file path for the compiler")
-parser.add_argument('--lex', dest='lex', help='Run lexer')
-parser.add_argument('--parser', help="Run lexer, and the parser")
-parser.add_argument('--codegen', help="Run lexer, parser, and assembler")
-parser.add_argument('-S', help="Emit assembly file but don't assemble or link it")
+parser.add_argument('--lex', dest='lex', action="store_true", help='Run lexer')
+parser.add_argument('--parser', action="store_true", help="Run lexer, and the parser")
+parser.add_argument('--codegen', action="store_true", help="Run lexer, parser, and assembler")
+parser.add_argument('-S', action="store_true", help="Emit assembly file but don't assemble or link it")
 
 args = parser.parse_args()
-#print(args.filepath)
+
+
+file = args.filepath
+
+lex = args.lex
+parser = args.parser
+codegen = args.codegen
+emitAssembly = args.S
