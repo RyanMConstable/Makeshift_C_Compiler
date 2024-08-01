@@ -46,4 +46,4 @@ os.remove(filename)
 #Assemble and link the assembly file to produce an executable using
 # "gcc assembly_file -o output_file" (generate a .o file)
 #Leave generated
-subprocess.run(["gcc", filename + ".s", "-o", filename + ".o"])
+#subprocess.run(["gcc", filename + ".s", "-o", filename + ".o"])
