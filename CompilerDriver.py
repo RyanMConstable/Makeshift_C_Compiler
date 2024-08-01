@@ -27,3 +27,15 @@ lex = args.lex
 parser = args.parser
 codegen = args.codegen
 emitAssembly = args.S
+
+#The following command preprocesses the source file
+# "gcc -E -P input_file -o preprocessed_file" this should generate a .i extension
+#Delete when done
+
+#Compile the preprocessed source file and output an assembly file
+#Skip this step because we don't have a compiler yet (generate a .s file)
+#Delete when done
+
+#Assemble and link the assembly file to produce an executable using
+# "gcc assembly_file -o output_file" (generate a .o file)
+#Leave generated
