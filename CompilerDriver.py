@@ -12,3 +12,10 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Wrapper for homemade C compiler')
 parser.add_argument('filepath', metavar='P', type=str, help="A source file path for the compiler")
+parser.add_argument('--lex', dest='lex', help='Run lexer')
+parser.add_argument('--parser', help="Run lexer, and the parser")
+parser.add_argument('--codegen', help="Run lexer, parser, and assembler")
+parser.add_argument('-S', help="Emit assembly file but don't assemble or link it")
+
+args = parser.parse_args()
+#print(args.filepath)
