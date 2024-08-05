@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 import subprocess
 import os
@@ -20,6 +22,7 @@ parser.add_argument('--lex', dest='lex', action="store_true", help='Run lexer')
 parser.add_argument('--parser', action="store_true", help="Run lexer, and the parser")
 parser.add_argument('--codegen', action="store_true", help="Run lexer, parser, and assembler")
 parser.add_argument('-S', action="store_true", help="Emit assembly file but don't assemble or link it")
+parser.add_argument('-V', action="store_true", help="Print out result of each stage of compiler (verbose)")
 
 args = parser.parse_args()
 
@@ -33,6 +36,7 @@ lex = args.lex
 parser = args.parser
 codegen = args.codegen
 emitAssembly = args.S
+verbose = args.V
 
 
 #Create a pattern matching for each command
@@ -44,6 +48,9 @@ subprocess.run(["gcc", "-E", "-P", file, "-o", filename + ".i"])
 
 if lex:
     toks = Lexer.main(filename + ".i")
+    if verbose:
+        print("Tokens Created by Lexer:")
+        print(toks)
     if toks == 1:
         exit(1)
     
