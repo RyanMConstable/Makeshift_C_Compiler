@@ -42,6 +42,7 @@ emitAssembly = args.S
 subprocess.run(["gcc", "-E", "-P", file, "-o", filename + ".i"])
 os.remove(filename)
 
+
 #Compile the preprocessed source file and output an assembly file
 #Skip this step because we don't have a compiler yet (generate a .s file)
 #Delete when done
