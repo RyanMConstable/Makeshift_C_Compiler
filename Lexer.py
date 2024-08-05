@@ -1,15 +1,15 @@
 import argparse
 #The lexers goal is to read in a source file and produce a list of tokens
 
-parser = argparse.ArgumentParser(description='Lexer for the makeshift C Compiler')
+"""parser = argparse.ArgumentParser(description='Lexer for the makeshift C Compiler')
 parser.add_argument('filepath', metavar='P', type=str, help="A source file path for the compiler")
 
 args = parser.parse_args()
 
-file = args.filepath
+file = args.filepath"""
 
 
-def main():
+def main(file):
     #Attempt to open the file
     try:
         f = open(file, "r")
@@ -30,6 +30,7 @@ def main():
                 curTok = ""
             else:
                 curTok += tok
-        print(tokList)
+        return tokList
     except Exception as e:
-        print("ERROR: " + e)
+        print("Error: " + e)
+        return 1

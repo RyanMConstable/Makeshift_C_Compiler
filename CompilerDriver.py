@@ -1,6 +1,7 @@
 import argparse
 import subprocess
 import os
+import Lexer
 
 #This drive must allow a path to a C source file as its only argument
 
@@ -40,7 +41,13 @@ emitAssembly = args.S
 # "gcc -E -P input_file -o preprocessed_file" this should generate a .i extension
 #Delete when done
 subprocess.run(["gcc", "-E", "-P", file, "-o", filename + ".i"])
-os.remove(filename)
+
+if lex:
+    toks = Lexer.main(filename + ".i")
+    if toks == 1:
+        exit(1)
+    
+os.remove("./" + filename + ".i")
 
 
 #Compile the preprocessed source file and output an assembly file
